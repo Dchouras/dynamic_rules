@@ -48,8 +48,9 @@ each evaluating to a boolean values. Multiple objects could be combined with `an
 
 ## 2. Evaluate Rules
 ```python
-import dynamic_rules
-dynamic_rules.evaluate_condition(param_1="foo", param_2=123)
+from dynamic_rules import load_rules, evaluate_rules
+load_rules("your/rules/location")
+evaluate_rules(param_1="foo", param_2=123)
 ```
 Rule engine filters the applicable rules based on the request params, evaluates them serially and returns `outcome` object as soon as first rule match happens.
 
