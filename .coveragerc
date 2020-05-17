@@ -1,0 +1,15 @@
+
+[run]
+branch = True
+source =
+    .
+omit =
+    venv/*
+    .tox/*
+    tests/*
+    setup.py
+    # Don't complain if non-runnable code isn't run
+    */__main__.py
+
+[html]
+directory = coverage-html

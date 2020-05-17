@@ -1,0 +1,184 @@
+{
+  "rules": [
+    {
+      "conditions": {
+        "any": [
+          {
+            "label": "num_of_cart_items",
+            "operator": "eq",
+            "value": 5
+          },
+          {
+            "all": [
+              {
+                "label": "cpc_ad_budget",
+                "operator": "lt",
+                "value": 350
+              },
+              {
+                "label": "business_category",
+                "operator": "eq",
+                "value": "PLAH"
+              }
+            ]
+          }
+        ]
+      },
+      "tags": [],
+      "outcome": {
+        "data": {
+          "products": [],
+          "product_plans": []
+        },
+        "actions": [
+          {
+            "event_type": "AWS IoT",
+            "event_data": {}
+          }
+        ]
+      }
+    },
+    {
+      "conditions": {
+        "any": [
+          {
+            "label": "num_of_cart_items",
+            "operator": "eq",
+            "value": 5
+          },
+          {
+            "all": [
+              {
+                "label": "cpc_ad_budget",
+                "operator": "gt",
+                "value": 350
+              },
+              {
+                "label": "business_category",
+                "operator": "eq",
+                "value": "PLAH"
+              }
+            ]
+          }
+        ]
+      },
+      "tags": [],
+      "outcome": {
+        "data": {
+          "products": [],
+          "product_plans": []
+        },
+        "actions": [
+          {
+            "event_type": "AWS IoT",
+            "event_data": {}
+          }
+        ]
+      }
+    },
+    {
+      "conditions": {
+        "any": [
+          {
+            "label": "num_of_cart_items",
+            "operator": "eq",
+            "value": 5
+          },
+          {
+            "label": "cpc_ad_budget",
+            "operator": "gt",
+            "value": 750
+          },
+          {
+            "label": "business_category",
+            "operator": "eq",
+            "value": "PLAH"
+          }
+        ]
+      },
+      "tags": [],
+      "outcome": {
+        "data": {
+          "products": [],
+          "product_plans": []
+        },
+        "actions": [
+          {
+            "event_type": "callable",
+            "event_data": {}
+          }
+        ]
+      }
+    },
+    {
+      "conditions": {
+        "all": [
+          {
+            "label": "num_of_cart_items",
+            "operator": "gt",
+            "value": 0
+          },
+          {
+            "label": "cpc_ad_budget",
+            "operator": "gt",
+            "value": 300
+          },
+          {
+            "label": "random_condition",
+            "operator": "eq",
+            "value": 141
+          }
+        ]
+      },
+      "tags": [],
+      "outcome": {
+        "data": {
+          "products": [],
+          "product_plans": []
+        },
+        "actions": [
+          {
+            "event_type": "callable",
+            "event_data": {}
+          }
+        ]
+      }
+    },
+    {
+      "conditions": {
+        "all": [
+          {
+            "label": "num_of_cart_items",
+            "operator": "gt",
+            "value": 0
+          },
+          {
+            "label": "cpc_ad_budget",
+            "operator": "gt",
+            "value": 300
+          },
+          {
+            "label": "select_condition",
+            "operator": "eq",
+            "value": [
+              141
+            ]
+          }
+        ]
+      },
+      "tags": [],
+      "outcome": {
+        "data": {
+          "products": [],
+          "product_plans": []
+        },
+        "actions": [
+          {
+            "event_type": "callable",
+            "event_data": {}
+          }
+        ]
+      }
+    }
+  ]
+}
