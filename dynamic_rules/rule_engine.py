@@ -1,5 +1,6 @@
 from dynamic_rules.data_types import NumericType, StringType
 from dynamic_rules.rule_processing import applicable_rules
+from dynamic_rules.errors import TypeNotSupportedError, DataTypeMismatchError
 
 
 def evaluate_rules(**kwargs):
@@ -42,13 +43,13 @@ def _eval_leaf_condition(conditions_obj, **kwargs):
 
 
 def _determine_data_object(input_val, rule_val):
-    assert type(input_val) == type(rule_val), \
-        "Data type mismatch, input type - {input_type} vs rule type - {rule_type}".format(
-            input_type=type(input_val), rule_type=type(rule_val)
+    if type(input_val) != type(rule_val):
+        raise DataTypeMismatchError(
+            f"Data type mismatch, input type - {type(input_val)} vs rule type - {type(rule_val)}"
         )
     if isinstance(input_val, int):
         return NumericType(input_val, rule_val)
     elif isinstance(input_val, str):
         return StringType(input_val, rule_val)
     else:
-        raise Exception("Instance type not supported")
+        raise TypeNotSupportedError
