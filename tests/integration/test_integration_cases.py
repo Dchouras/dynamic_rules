@@ -1,5 +1,5 @@
-
 from dynamic_rules.rule_engine import evaluate_rules
+from dynamic_rules.errors import TypeNotSupportedError
 import pytest
 
 
@@ -21,7 +21,7 @@ class TestHappyFLow:
         ) is None
 
     def test_missing_operator_support(self, load_test_rules):
-        with pytest.raises(Exception):
+        with pytest.raises(TypeNotSupportedError):
             evaluate_rules(
                 num_of_cart_items=7,
                 cpc_ad_budget=400,
